@@ -1,0 +1,32 @@
+.navBar-container {
+    position: fixed;
+    bottom: 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBar {
+    background: #474343a3;
+    display: flex;
+
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.navBar a {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: #fff;
+
+    text-transform: capitalize;
+}
+
+.navBar a:hover {
+    background: #474343cf;
+}
+
+.nav-link.active {
+    background: #474343dd;
+}
