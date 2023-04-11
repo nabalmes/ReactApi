@@ -6,8 +6,7 @@ import axios from "axios";
 export const Component1 = () => {
     const [datas, setDatas] = useState([])
     const postDatas = async() => {
-     const axiosResponse = await axios.get('https://pokeapi.co/api/v2/pokemon/');
-        setDatas(axiosResponse.data.results)
+     fetch(`https://pokeapi.co/api/v2/pokemon/`).then(response => response.json()).then((json) => setDatas(json.data.results))
     }
 
     useEffect(() => {
