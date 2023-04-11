@@ -7,9 +7,9 @@ export const Component2 = () => {
     const  [search, setSearch] = useState('')
 
     const [axiosData, setAxiosData] = useState([])
-    const postAxiosData = () => {
-        
-        fetch(`https://pokeapi.co/api/v2/pokemon/`).then(response => response.json()).then((json) => setAxiosData(json.results))
+    const postAxiosData = async () => {
+        const axiosResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/`)
+        setAxiosData(postAxiosData.data.results)
     }
 
     useEffect(() => {
