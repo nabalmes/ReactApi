@@ -8,7 +8,8 @@ export const Component2 = () => {
 
     const [axiosData, setAxiosData] = useState([])
     const postAxiosData = async () => {
-       fetch(`https://pokeapi.co/api/v2/pokemon/`).then(response => response.json()).then((json) => setAxiosData(json.results))
+        const axiosData = axios.get(`https://pokeapi.co/api/v2/pokemon/`)
+        setAxiosData(axiosData.data.results)
     }
 
     useEffect(() => {
