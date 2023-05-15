@@ -7,20 +7,19 @@ import { json } from "react-router-dom";
 export const Component1 = () => {
     const [datas, setDatas] = useState([])
     const postDatas = async () => {
-        const axiosData = await axios.get(`https://pokeapi.co/api/v2/pokemon/`)
-        setDatas(axiosData.data.results)
+        fetch(`https://pokeapi.co/api/v2/pokemon/`).then(response => response.json()).then((json) => setDatas(json.results))
     }
-        useEffect(() => {
-            postDatas()
-        }, [])
-        return (
-            <section>
-                <h1>Component1</h1>
-                {
-                    datas.map((data, index) =>
-                        <h1 key={index}>{data.name}</h1>
-                    )
-                }
-            </section>
-        )
-    }
+    useEffect(() => {
+        postDatas()
+    }, [])
+    return (
+        <section>
+            <h1>Component1</h1>
+            {
+                datas.map((data, index) =>
+                    <h1 key={index}>{data.name}</h1>
+                )
+            }
+        </section>
+    )
+}
